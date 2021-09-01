@@ -18,7 +18,6 @@ notebook.grid()
 
 frame_bars = ttk.LabelFrame(root, text='CPUs')
 frame_bars.grid()
-frame_bars.config(height= 300, width=350)
 frame_bars.config(relief = RIDGE)
 
 frame_cpu = ttk.LabelFrame(root, text='Infos')
@@ -57,6 +56,6 @@ while True:
     ip_infos.start()
     resumo_infos = Resumo(frame_resumo)
     resumo_infos.start()
-
+    root.update()
 
 
