@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 
 import Files
+import ProcessTable
 from CpuInfos import CpuInfos
 from Disco import Disco
 from Memoria import Memoria
@@ -50,6 +51,10 @@ def call_files():
     Files.Files(root)
 
 
+def call_proc_table():
+    ProcessTable.ProcessTable(root)
+
+
 call_cpu_bars()
 cpu_infos = CpuInfos(frame_cpu)
 cpu_infos.start()
@@ -62,7 +67,8 @@ ip_infos.start()
 resumo_infos = Resumo(frame_resumo)
 resumo_infos.start()
 
-Button(frame_bars, text='Update', command=call_cpu_bars).grid(sticky=W, row=0, column=0,padx=5,pady=2)
-Button(frame_bars, text='Infos. Dir.', command=call_files).grid(sticky=W, row=0,column=1,padx=2,pady=2)
+Button(frame_bars, text='Update', command=call_cpu_bars).grid(sticky=W, row=0, column=0, padx=5, pady=2)
+Button(frame_bars, text='Infos. Dir.', command=call_files).grid(sticky=W, row=0, column=1, padx=2, pady=2)
+Button(frame_bars, text='Procs. Table', command=call_proc_table).grid(sticky=W, row=0, column=2, padx=2, pady=2)
 root.update()
 root.mainloop()
