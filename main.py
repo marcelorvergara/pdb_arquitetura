@@ -1,10 +1,8 @@
-import time
-from threading import Thread
-
 import Cpu
 from tkinter import *
 from tkinter import ttk
 
+import Files
 from CpuInfos import CpuInfos
 from Disco import Disco
 from Memoria import Memoria
@@ -43,9 +41,16 @@ notebook.add(frame_disco, text='Infos Disco')
 notebook.add(frame_ip, text='Infos IP')
 notebook.add(frame_resumo, text='Resumo Infos')
 
+
 def call_cpu_bars():
     Cpu.CpuBars(frame_bars)
 
+
+def call_files():
+    Files.Files(root)
+
+
+call_cpu_bars()
 cpu_infos = CpuInfos(frame_cpu)
 cpu_infos.start()
 mem_infos = Memoria(frame_mem)
@@ -57,6 +62,7 @@ ip_infos.start()
 resumo_infos = Resumo(frame_resumo)
 resumo_infos.start()
 
-Button(frame_bars, text='Update', command=call_cpu_bars).grid(sticky='w',row=0,column=0)
+Button(frame_bars, text='Update', command=call_cpu_bars).grid(sticky=W, row=0, column=0,padx=5,pady=2)
+Button(frame_bars, text='Infos. Dir.', command=call_files).grid(sticky=W, row=0,column=1,padx=2,pady=2)
 root.update()
 root.mainloop()

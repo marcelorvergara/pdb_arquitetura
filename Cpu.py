@@ -13,7 +13,7 @@ class CpuBars(threading.Thread):
         for p in cpus_proc:
             print(p)
             var_proc = DoubleVar()
-            var_proc.set(p * 5.0)
+            var_proc.set(p)
             s = Style()
             s.theme_use("default")
             s.configure("TProgressbar", background='lightgrey', thickness=10)
