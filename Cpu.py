@@ -1,17 +1,17 @@
 from tkinter import DoubleVar, ttk
 from tkinter.ttk import Style
 
-import psutil,threading
+import psutil
+import threading
 
 
 class CpuBars(threading.Thread):
-    def __init__(self, frame_bars, root):
+    def __init__(self, frame_bars):
         super().__init__()
-        cpus_proc = psutil.cpu_percent(percpu=True, interval=0.2)
-        num = 0
-        row = 0
+        cpus_proc = psutil.cpu_percent(percpu=True, interval=0.1)
+        row = 1
         for p in cpus_proc:
-            num += 1
+            print(p)
             var_proc = DoubleVar()
             var_proc.set(p * 5.0)
             s = Style()
