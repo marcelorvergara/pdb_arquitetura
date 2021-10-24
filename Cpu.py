@@ -10,6 +10,7 @@ class CpuBars(threading.Thread):
         super().__init__()
         cpus_proc = psutil.cpu_percent(percpu=True, interval=0.1)
         row = 1
+        print('--------------')
         for p in cpus_proc:
             print(p)
             var_proc = DoubleVar()

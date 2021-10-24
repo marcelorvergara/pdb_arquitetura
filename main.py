@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 
 import Files
+import NetInfos
 import ProcessTable
 from CpuInfos import CpuInfos
 from Disco import Disco
@@ -11,7 +12,7 @@ from Ip import Ip
 from Resumo import Resumo
 
 root = Tk()
-root.title("Teste de Performance 3 - TP3")
+root.title("Teste de Performance - Projeto de Bloco")
 
 notebook = ttk.Notebook(root)
 notebook.grid()
@@ -52,7 +53,13 @@ def call_files():
 
 
 def call_proc_table():
-    ProcessTable.ProcessTable(root)
+    proc_table = ProcessTable.ProcessTable(root)
+    proc_table.start()
+
+
+def call_net_infos():
+    net_infos = NetInfos.NetInfos(root)
+    net_infos.start()
 
 
 call_cpu_bars()
@@ -69,6 +76,7 @@ resumo_infos.start()
 
 Button(frame_bars, text='Update', command=call_cpu_bars).grid(sticky=W, row=0, column=0, padx=5, pady=2)
 Button(frame_bars, text='Infos. Dir.', command=call_files).grid(sticky=W, row=0, column=1, padx=2, pady=2)
-Button(frame_bars, text='Procs. Table', command=call_proc_table).grid(sticky=W, row=0, column=2, padx=2, pady=2)
+Button(frame_bars, text='Procs.', command=call_proc_table).grid(row=0, column=1, padx=2, pady=2)
+Button(frame_bars, text='Net.', command=call_net_infos).grid(sticky=E, row=0, column=1, padx=2, pady=2)
 root.update()
 root.mainloop()
